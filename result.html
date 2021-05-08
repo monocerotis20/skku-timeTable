@@ -45,41 +45,174 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-9 bg-light">
-          <!-- 여기에 시간표 리스트 (2열로 나열) -->
+        <div class="col-md-9 bg-light mb-3 rounded-3">
+          <!-- 여기에 시간표 리스트 나열 -->
+          <table
+            class="table table-primary mt-4"
+            style="table-layout: fixed; width: 850px; margin: auto"
+          >
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">9:00</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">10:30</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">12:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">1:30</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">4:30</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">6:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            class="table table-primary mt-4"
+            style="table-layout: fixed; width: 850px; margin: auto"
+          >
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">9:00</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">10:30</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">12:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">1:30</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">3:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">4:30</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+              <tr>
+                <th scope="row">6:00</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="col-md-3 rounded p-2" style="background: lightgray">
+        <div class="col-md-3 rounded-3 p-2 mb-3" style="background: lightgray">
           <!-- 사이드 바 메뉴-->
 
           <!-- 패널 타이틀1 -->
-          <div class="panel panel-info">
+          <div class="panel panel-default mt-2">
             <div class="panel-heading">
-              <h3 class="panel-title">필터</h3>
+              <h4 class="panel-title">필터</h4>
             </div>
 
-            <div class="dropdown">
-              <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                필터 선택
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">공강 요일 수</a>
-                <a class="dropdown-item" href="#">과목간 공강 시간</a>
-                <a class="dropdown-item" href="#">하루 최대 과목 수</a>
-                <a class="dropdown-item" href="#">최소 평점</a>
-                <a class="dropdown-item" href="#">수강할 학점</a>
-              </div>
-            </div>
-
-            <!--
-            <select class="form-control mt-2 mb-2">
-              <option>공강 요일 수</option>
-              <option>과목간 공강 시간</option>
-              <option>하루 최대 과목 수</option>
-              <option>최소 평점</option>
-              <option>수강할 학점</option>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>적용할 필터를 선택하세요</option>
+              <option value="1">공강 요일 수</option>
+              <option value="2">과목간 공강 시간</option>
+              <option value="3">하루 최대 과목 수</option>
+              <option value="4">최소 평점</option>
+              <option value="5">수강할 학점</option>
             </select>
-          -->
 
             <!-- 선택된 필터들에 대해 Placeholder를 
               "공강 요일 수", "과목간 공강 시간", ... 를 입력
@@ -88,24 +221,23 @@
             
             선택한 필터에 대한 description을 불러오기
           
-          -->
+            -->
 
-          <!-- 패널 타이틀2 -->
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Panel Title</h3>
+            <!-- 패널 타이틀2 -->
+            <div class="panel panel-default mt-3 mb-3">
+              <input
+                type="text"
+                class="form-control me-2"
+                placeholder="필터 값"
+              />
             </div>
 
-            <input type="text" class="form-control me-2" placeholder="필터 값" />
-          </div>
-          
-          <div class="container">
             <button
               type="button"
               class="btn btn-primary mt-2 text-nowrap"
               onclick=""
             >
-            필터 적용
+              필터 적용
             </button>
           </div>
         </div>
@@ -128,5 +260,13 @@
       </div>
     </div>
     -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+
+    <script></script>
   </body>
 </html>
