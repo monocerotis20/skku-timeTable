@@ -295,5 +295,232 @@
       [2, 4],
       [4, 3]
     ]
+  },
+
+  "SWE3005-41": {
+    "class_name_Kor": "컴퓨터구조개론",
+    "class_name_Eng": "Introduction to Computer Architectures",
+    "prof": "서의성",
+    "credits": 3,
+    "time": [
+      [2, 4],
+      [4, 3]
+    ]
+  },
+
+  "SWE3005-42": {
+    "class_name_Kor": "컴퓨터구조개론",
+    "class_name_Eng": "Introduction to Computer Architectures",
+    "prof": "한태희",
+    "credits": 3,
+    "time": [
+      [1, 4],
+      [3, 3]
+    ]
+  },
+
+  "SWE3005-43": {
+    "class_name_Kor": "컴퓨터구조개론",
+    "class_name_Eng": "Introduction to Computer Architectures",
+    "prof": "조형민",
+    "credits": 3,
+    "time": [
+      [2, 4],
+      [4, 3]
+    ]
+  },
+
+  "SWE3006-41": {
+    "class_name_Kor": "프로그래밍언어",
+    "class_name_Eng": "Programming Languages",
+    "prof": "정태명",
+    "credits": 3,
+    "time": [
+      [1, 4],
+      [3, 3]
+    ]
+  },
+
+  "SWE3006-42": {
+    "class_name_Kor": "프로그래밍언어",
+    "class_name_Eng": "Programming Languages",
+    "prof": "남범석",
+    "credits": 3,
+    "time": [
+      [2, 1],
+      [4, 2]
+    ]
+  },
+
+  "SWE3008-41": {
+    "class_name_Kor": "컴퓨터그래픽스개론",
+    "class_name_Eng": "Introduction to Computer Graphics",
+    "prof": "이성길",
+    "credits": 3,
+    "time": [
+      [2, 3],
+      [4, 4]
+    ]
+  },
+
+  "SWE3009-41": {
+    "class_name_Kor": "인터넷서비스와정보보호",
+    "class_name_Eng": "Internet Service and Information Security",
+    "prof": "이호준",
+    "credits": 3,
+    "time": [
+      [2, 5],
+      [4, 6]
+    ]
+  },
+
+  "SWE3022-41": {
+    "class_name_Kor": "컴퓨터네트웍개론",
+    "class_name_Eng": "Computer Networks",
+    "prof": "추현승",
+    "credits": 3,
+    "time": [
+      [1, 6],
+      [3, 5]
+    ]
+  },
+
+  "SWE3022-42": {
+    "class_name_Kor": "컴퓨터네트웍개론",
+    "class_name_Eng": "Computer Networks",
+    "prof": "김유성",
+    "credits": 3,
+    "time": [
+      [5, 3],
+      [5, 4]
+    ]
+  },
+
+  "SWE3023-41": {
+    "class_name_Kor": "소프트웨어특강1",
+    "class_name_Eng": "Special Topics in Software 1",
+    "prof": "김유성",
+    "credits": 3,
+    "time": [
+      [2, 4],
+      [4, 3]
+    ]
+  },
+
+  "SWE3026-41": {
+    "class_name_Kor": "확률과랜덤프로세스",
+    "class_name_Eng": "Probability and Random Process",
+    "prof": "박진영",
+    "credits": 3,
+    "time": [
+      [2, 3],
+      [4, 4]
+    ]
+  },
+
+  "SWE3027-41": {
+    "class_name_Kor": "임베디드소프트웨어개론",
+    "class_name_Eng": "Introduction to Embedded Software",
+    "prof": "조형민",
+    "credits": 3,
+    "time": [
+      [2, 2],
+      [4, 1]
+    ]
+  },
+
+  "SWE3028-41": {
+    "class_name_Kor": "캡스톤설계프로젝트",
+    "class_name_Eng": "Capstone Design Project",
+    "prof": "타메르",
+    "credits": 3,
+    "time": [
+      [2, 6],
+      [4, 5]
+    ]
+  },
+
+  "SWE3031-41": {
+    "class_name_Kor": "네트워크프로젝트",
+    "class_name_Eng": "Network Project",
+    "prof": "염익준",
+    "credits": 2,
+    "time": [[4, 7]]
+  },
+
+  "SWE3032-41": {
+    "class_name_Kor": "인공지능프로젝트",
+    "class_name_Eng": "Artificial Intelligence Project",
+    "prof": "이지형",
+    "credits": 2,
+    "time": [[1, 7]]
+  },
+
+  "SWE3047-41": {
+    "class_name_Kor": "모바일앱프로그래밍실습",
+    "class_name_Eng": "Mobile App Programming Lab",
+    "prof": "염익준",
+    "credits": 2,
+    "time": [[2, 7]]
+  },
+
+  "SWE3047-42": {
+    "class_name_Kor": "모바일앱프로그래밍실습",
+    "class_name_Eng": "Mobile App Programming Lab",
+    "prof": "김영훈",
+    "credits": 2,
+    "time": [[2, 7]]
+  },
+
+  "SWE3047-43": {
+    "class_name_Kor": "모바일앱프로그래밍실습",
+    "class_name_Eng": "Mobile App Programming Lab",
+    "prof": "김영훈",
+    "credits": 2,
+    "time": [[3, 7]]
+  },
+
+  "SWE3049-41": {
+    "class_name_Kor": "빅테이터분석방법론",
+    "class_name_Eng": "Introduction to Big Data Analytics",
+    "prof": "박호건",
+    "credits": 3,
+    "time": [
+      [1, 4],
+      [3, 3]
+    ]
+  },
+
+  "SWE3050-41": {
+    "class_name_Kor": "기계학습원론",
+    "class_name_Eng": "Fundamentals of machine learning",
+    "prof": "최준희",
+    "credits": 3,
+    "time": [
+      [1, 6],
+      [3, 5]
+    ]
+  },
+
+  "SWE3052-41": {
+    "class_name_Kor": "심층신경망개론",
+    "class_name_Eng": "Introduction to Deep Neural Networks",
+    "prof": "이종욱",
+    "credits": 3,
+    "time": [
+      [1, 1],
+      [3, 2]
+    ]
+  },
+
+  "SWE3053-41": {
+    "class_name_Kor": "HCI개론",
+    "class_name_Eng": "Introduction to Human Computer Interaction",
+    "prof": "등국홍",
+    "credits": 3,
+    "time": [
+      [1, 6],
+      [3, 5]
+    ]
   }
 }
