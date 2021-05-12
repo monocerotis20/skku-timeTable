@@ -511,16 +511,5 @@
       [1, 1],
       [3, 2]
     ]
-  },
-
-  "SWE3053-41": {
-    "class_name_Kor": "HCI개론",
-    "class_name_Eng": "Introduction to Human Computer Interaction",
-    "prof": "등국홍",
-    "credits": 3,
-    "time": [
-      [1, 6],
-      [3, 5]
-    ]
   }
 }
