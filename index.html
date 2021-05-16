@@ -76,27 +76,16 @@
     <!-- 
       아래 그룹은 기본값 3개이고, container를 기본 단위로 추가와 삭제가 가능하도록 동적 관리
     -->
-    <div class="container mt-2 mb-2">
-      <div class="card bg-light">
-        <div class="card-body">그룹 1</div>
-      </div>
-    </div>
 
-    <div class="container mt-2 mb-2">
-      <div class="card bg-light">
-        <div class="card-body">그룹 2</div>
-      </div>
-    </div>
-
-    <div class="container mt-2 mb-2">
-      <div class="card bg-light">
-        <div class="card-body">그룹 3</div>
-      </div>
-    </div>
+    <div class="container" id="group-list"></div>
 
     <div class="container">
       <div class="group-add-del d-flex">
-        <button type="button" class="btn btn-primary ms-1 text-nowrap">
+        <button
+          type="button"
+          id="groupAdd"
+          class="btn btn-primary ms-1 text-nowrap"
+        >
           <i class="bi bi-plus"></i> 그룹 추가
         </button>
 
@@ -105,5 +94,39 @@
         </button>
       </div>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let groups = {};
+      let cnt = 1;
+
+      function saveGroups() {
+        localStorage.setItem("groups", JSON.stringify(groups));
+      }
+
+      function addGroup(group) {
+        let div = document.createElement("div");
+        div.className = "card bg-light mt-2 mb-2";
+
+        let card = document.createElement("div");
+        card.className = "card-body";
+        div.appendChild(card);
+
+        div.id = cnt;
+        cnt++;
+
+        let groupList = document.querySelector("#group-list");
+
+        groupList.appendChild(div);
+      }
+
+      let gButton = document.querySelector("#groupAdd");
+      gButton.addEventListener("click", addGroup);
+    </script>
   </body>
 </html>
