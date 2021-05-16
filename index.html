@@ -54,11 +54,26 @@
     <div class="container">
       <div class="d-flex">
         <form class="d-flex mb-3">
-          <input type="text" class="form-control me-2" placeholder="그룹명" />
+          <input
+            type="text"
+            class="form-control me-2"
+            id="groupName"
+            placeholder="그룹명"
+          />
 
-          <input type="text" class="form-control me-2" placeholder="과목명" />
+          <input
+            type="text"
+            class="form-control me-2"
+            id="className"
+            placeholder="과목명"
+          />
 
-          <input type="text" class="form-control me-2" placeholder="교수명" />
+          <input
+            type="text"
+            class="form-control me-2"
+            id="profName"
+            placeholder="교수명"
+          />
 
           <input
             type="text"
@@ -117,10 +132,17 @@
         card.className = "card-body";
         div.appendChild(card);
 
-        div.id = cnt;
-        cnt++;
+        let span = document.createElement("span");
+        span.className = "me-auto";
+        span.textContent = `group ${cnt}:`;
+        card.appendChild(span);
 
         let groupList = document.querySelector("#group-list");
+
+        groups[cnt] = [];
+
+        div.id = `g${cnt}`;
+        cnt++;
 
         groupList.appendChild(div);
       }
