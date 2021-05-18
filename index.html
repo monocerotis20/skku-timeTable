@@ -111,6 +111,14 @@
       let groups = {};
       let cnt = 1;
 
+      // function loadGroups() {
+      //   let lastGroups = localStorage.getItem("groups");
+      //   if (!lastGroups) return;
+
+      //   groups = JSON.parse(lastGroups);
+      //   groups.forEach(addGroup);
+      // }
+
       function saveGroups() {
         localStorage.setItem("groups", JSON.stringify(groups));
       }
@@ -139,7 +147,14 @@
       }
 
       let gButton = document.querySelector("#groupAdd");
-      gButton.addEventListener("click", addGroup);
+      gButton.addEventListener("click", () => {
+        addGroup();
+        saveGroups();
+      });
+
+      // window.addEventListener("load", () => {
+      //   loadGroups();
+      // });
     </script>
 
     <script>
@@ -183,6 +198,8 @@
         // 5. Clear input.
         group_input.value = "";
         code_input.value = "";
+
+        saveGroups();
       });
     </script>
   </body>
