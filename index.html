@@ -54,13 +54,25 @@
     <div class="container">
       <div class="d-flex">
         <form class="d-flex mb-3">
+          <input
+            type="text"
+            class="form-control me-2"
+            id="group-input"
+            placeholder="그룹명"
+          />
 
-          <input type="text" class="form-control me-2" id="group-input" placeholder="그룹명" />
+          <input
+            type="text"
+            class="form-control me-2"
+            id="code-input"
+            placeholder="과목명"
+          />
 
-          <input type="text" class="form-control me-2" id="code-input" placeholder="과목명" />
-
-          <button type="button" id="add" class="btn btn-primary ms-1 text-nowrap">
-
+          <button
+            type="button"
+            id="add"
+            class="btn btn-primary ms-1 text-nowrap"
+          >
             <i class="bi bi-plus"></i> 과목 추가
           </button>
         </form>
@@ -129,49 +141,49 @@
       let gButton = document.querySelector("#groupAdd");
       gButton.addEventListener("click", addGroup);
     </script>
+
+    <script>
+      function addToClassList(task) {
+        let div = document.createElement("div");
+        div.className =
+          "task bg-light p-1 rounded-2 ps-2 d-flex align-items-center";
+
+        let span = document.createElement("span");
+        span.className = "me-auto";
+        span.textContent = task.classCode;
+        div.appendChild(span);
+
+        let list = document.querySelector(`#g${task.groupName}`);
+        list.appendChild(div);
+      }
+
+      let button = document.querySelector("#add");
+      button.addEventListener("click", () => {
+        // 1. Read the text in #group-input and #code-input.
+        let group_input = document.querySelector("#group-input");
+        let code_input = document.querySelector("#code-input");
+        let classCode = code_input.value;
+        let groupName = group_input.value;
+
+        if (!classCode.length) return;
+        if (!groupName.length) return;
+
+        // 2. Create a new Task object.
+        let task = {
+          classCode: classCode,
+          groupName: groupName,
+        };
+
+        // 3. Append the new Task object to groups
+        groups[groupName].push(classCode);
+
+        // 4. Create a new task item and attach it.
+        addToClassList(task);
+
+        // 5. Clear input.
+        group_input.value = "";
+        code_input.value = "";
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  function addToList(task){
-    let div = document.createElement("div");
-		div.className = "task bg-light p-1 rounded-2 ps-2 d-flex align-items-center";
-
-    let span = document.createElement("span");
-		span.className = "me-auto";
-		span.textContent = task.classCode;
-		div.appendChild(span);
-
-    let list = document.querySelector(`#g${task.groupName}`);
-		list.appendChild(div);
-    }
-
-    let button = document.querySelector("#add");
-		button.addEventListener("click", () => {
-			// 1. Read the text in #group-input and #code-input.
-			let group_input = document.querySelector("#group-input");
-      let code_input = document.querySelector("#code-input");
-			let classCode = code_input.value;
-      let groupName = group_input.value;
-
-			if (!classCode.length) return;
-      if (!groupName.length) return;
-
-			// 2. Create a new Task object.
-			let task = {
-				classCode: classCode,
-				groupName: groupName
-			};
-
-			// 3. Append the new Task object to groups
-      groups[groupName].push(classCode);
-      
-			// 4. Create a new task item and attach it.
-			addToList(task);
-
-			// 5. Clear input.
-			group_input.value = "";
-      code_input.value = "";
-		});
-
-</script>
