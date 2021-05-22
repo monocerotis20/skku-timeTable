@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-  <meta charset="utf-8" />
+    <title>SKKU-table</title>
 
-  <title>SKKU-table</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <style>
+      .container {
+        width: 1200px;
+      }
+    </style>
+  </head>
 
-  <style>
-    .container {
-      width: 1200px;
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <span class="navbar-brand mb-0 h1"><i class="bi bi-alarm"></i> SKKU-timeTable <i class="bi bi-table"></i></span>
-    </div>
-  </nav>
-
-  <div class="container">
-    <button type="button" class="btn btn-primary m-3 text-nowrap" onclick="location.href='index.html'">
-      <i class="bi bi-arrow-left-circle"></i> 뒤로 가기
-    </button>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9 bg-light mb-3 rounded-3">
-        <div id="Tables">
-           <!-- 여기에 시간표 리스트 나열 -->
-        </div>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1"
+          ><i class="bi bi-alarm"></i> SKKU-timeTable <i class="bi bi-table"></i
+        ></span>
       </div>
+    </nav>
 
-      <div class="col-md-3 rounded-3 p-2 mb-3" style="background: lightgray">
-        <!-- 사이드 바 메뉴-->
+    <div class="container">
+      <button
+        type="button"
+        class="btn btn-primary m-3 text-nowrap"
+        onclick="location.href='index.html'"
+      >
+        <i class="bi bi-arrow-left-circle"></i> 뒤로 가기
+      </button>
+    </div>
 
-        <!-- 패널 타이틀1 -->
-        <div class="panel panel-default mt-2">
-          <div class="panel-heading">
-            <h4 class="panel-title">필터</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 bg-light mb-3 rounded-3">
+          <div id="Tables">
+            <!-- 여기에 시간표 리스트 나열 -->
           </div>
+        </div>
 
-          <select class="form-select" aria-label="Default select example">
-            <option selected>적용할 필터를 선택하세요</option>
-            <option value="1">공강 요일 수</option>
-            <option value="2">과목간 공강 시간</option>
-            <option value="3">하루 최대 과목 수</option>
-            <option value="4">최소 평점</option>
-            <option value="5">수강할 학점</option>
-          </select>
+        <div class="col-md-3 rounded-3 p-2 mb-3" style="background: lightgray">
+          <!-- 사이드 바 메뉴-->
 
-          <!-- 선택된 필터들에 대해 Placeholder를 
+          <!-- 패널 타이틀1 -->
+          <div class="panel panel-default mt-2">
+            <div class="panel-heading">
+              <h4 class="panel-title">필터</h4>
+            </div>
+
+            <select class="form-select" aria-label="Default select example">
+              <option selected>적용할 필터를 선택하세요</option>
+              <option value="1">공강 요일 수</option>
+              <option value="2">과목간 공강 시간</option>
+              <option value="3">하루 최대 과목 수</option>
+              <option value="4">최소 평점</option>
+              <option value="5">수강할 학점</option>
+            </select>
+
+            <!-- 선택된 필터들에 대해 Placeholder를 
               "공강 요일 수", "과목간 공강 시간", ... 를 입력
 
             또는
@@ -66,20 +78,28 @@
           
             -->
 
-          <!-- 패널 타이틀2 -->
-          <div class="panel panel-default mt-3 mb-3">
-            <input type="text" class="form-control me-2" placeholder="필터 값" />
-          </div>
+            <!-- 패널 타이틀2 -->
+            <div class="panel panel-default mt-3 mb-3">
+              <input
+                type="text"
+                class="form-control me-2"
+                placeholder="필터 값"
+              />
+            </div>
 
-          <button type="button" class="btn btn-primary mt-2 text-nowrap" onclick="">
-            필터 적용
-          </button>
+            <button
+              type="button"
+              class="btn btn-primary mt-2 text-nowrap"
+              onclick=""
+            >
+              필터 적용
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--
+    <!--
     <div class="container show-grid">
       <div class="row mt-3">
         <div class="col-md-6 bg-light">
@@ -96,62 +116,63 @@
     </div>
     -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
 
-  <script type="text/javascript" src="classData/classData.js"></script>
+    <script type="text/javascript" src="classData/classData.js"></script>
 
-  <script>
-    //그룹 받아옴
-    let groupsStr = localStorage.getItem("groups");
-    let groupsObj = JSON.parse(groupsStr);
+    <script>
+      //그룹 받아옴
+      let groupsStr = localStorage.getItem("groups");
+      let groupsObj = JSON.parse(groupsStr);
 
-    //console.log(classData);
+      //console.log(classData);
 
-    //값 받아온 리스트
-    //let groups = [[1, 4, 5, 5, 1], ['a', 'b', 'c'], [520, 130, 245, 241]]; //-> index.html에서 여기에 넣어주면 됨
-    let groups = [];
-    for (let i = 1; i <= Object.keys(groupsObj).length; i++) {
-      groups.push(groupsObj[i]);
-    }
-    //console.log(groups);
-    let dataObj = classData;
+      //값 받아온 리스트
+      //let groups = [[1, 4, 5, 5, 1], ['a', 'b', 'c'], [520, 130, 245, 241]]; //-> index.html에서 여기에 넣어주면 됨
+      let groups = [];
+      for (let i = 1; i <= Object.keys(groupsObj).length; i++) {
+        groups.push(groupsObj[i]);
+      }
+      //console.log(groups);
+      let dataObj = classData;
 
-    let products = [];
-    let cellSearch = [];
+      let products = [];
+      let cellSearch = [];
 
-    //조합 추출해서 products에 하나씩 리스트 element로 들어감
-    products = groups.reduce(
-      function tl(accumulator, value) {
-        let listCtrl = [];
-        accumulator.forEach(function (a0) {
-          value.forEach(function (a1) {
-            listCtrl.push(a0.concat(a1));
+      //조합 추출해서 products에 하나씩 리스트 element로 들어감
+      products = groups.reduce(
+        function tl(accumulator, value) {
+          let listCtrl = [];
+          accumulator.forEach(function (a0) {
+            value.forEach(function (a1) {
+              listCtrl.push(a0.concat(a1));
+            });
           });
-        });
-        return listCtrl;
-      },
-      [[]]
-    );
+          return listCtrl;
+        },
+        [[]]
+      );
 
+      const rowCnt = 8;
+      const columnCnt = 6;
 
-    const rowCnt = 8;
-    const columnCnt = 6;
+      for (let i = 0; i < products.length; i++) {
+        //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
 
-    for (let i = 0; i < products.length; i++) {
-      //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
+        let skipThisChoice = 0;
+        //조건에 만족했다면
+        //div값 create
+        let tablesVar = document.getElementById("Tables");
+        let div = document.createElement("div");
+        let queryStr = "";
 
-      let skipThisChoice = 0;
-      //조건에 만족했다면
-      //div값 create
-      let tablesVar = document.getElementById("Tables");
-      let div = document.createElement("div");
-      let queryStr = "";
-
-      queryStr +=
-        '<table class="table table-primary mt-4" style="table-layout: fixed; width: 850px; margin: auto">';
-      queryStr += `
+        queryStr +=
+          '<table class="table table-primary mt-4" style="table-layout: fixed; width: 850px; margin: auto">';
+        queryStr += `
               <thead>
               <tr>
                 <th scope="col"></th>
@@ -163,75 +184,77 @@
               </tr>
               </thead>`;
 
-      queryStr += "<tbody>";
+        queryStr += "<tbody>";
 
-      for (let j = 1; j < rowCnt; j++) {
-        queryStr += "<tr>";
-        switch (j) {
-          case 1:
-            queryStr += '<th scope="row">9:00</th>';
-            break;
-          case 2:
-            queryStr += '<th scope="row">10:30</th>';
-            break;
-          case 3:
-            queryStr += '<th scope="row">12:00</th>';
-            break;
-          case 4:
-            queryStr += '<th scope="row">13:30</th>';
-            break;
-          case 5:
-            queryStr += '<th scope="row">15:00</th>';
-            break;
-          case 6:
-            queryStr += '<th scope="row">16:30</th>';
-            break;
-          case 7:
-            queryStr += '<th scope="row">18:00</th>';
-            break;
-        }
-
-        for (let k = 1; k < columnCnt; k++) {
-          queryStr += "<td>";
-
-          //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
-          let dupCheck = 0;
-
-          for (let l = 0; l < products[i].length; l++) { //선택한 조합 순회
-            for (let m = 0; m < dataObj[products[i][l]].time.length; m++) { //조합 중 과목의 time 요소 순회
-              if (dataObj[products[i][l]].time[m][0] === k && dataObj[products[i][l]].time[m][1] === j) {
-                if (dupCheck === 1) {
-                  skipThisChoice = 1;
-                  break;
-                }
-                queryStr += `${dataObj[products[i][l]].class_name_Kor}`;
-                dupCheck = 1;
-              }
-            }
+        for (let j = 1; j < rowCnt; j++) {
+          queryStr += "<tr>";
+          switch (j) {
+            case 1:
+              queryStr += '<th scope="row">9:00</th>';
+              break;
+            case 2:
+              queryStr += '<th scope="row">10:30</th>';
+              break;
+            case 3:
+              queryStr += '<th scope="row">12:00</th>';
+              break;
+            case 4:
+              queryStr += '<th scope="row">13:30</th>';
+              break;
+            case 5:
+              queryStr += '<th scope="row">15:00</th>';
+              break;
+            case 6:
+              queryStr += '<th scope="row">16:30</th>';
+              break;
+            case 7:
+              queryStr += '<th scope="row">18:00</th>';
+              break;
           }
 
-          if(skipThisChoice === 1)
-            break;
+          for (let k = 1; k < columnCnt; k++) {
+            queryStr += "<td>";
 
-          if (dupCheck === 0)
-            queryStr += "-";
+            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+            let dupCheck = 0;
 
-          queryStr += "</td>";
+            for (let l = 0; l < products[i].length; l++) {
+              //선택한 조합 순회
+              for (let m = 0; m < dataObj[products[i][l]].time.length; m++) {
+                //조합 중 과목의 time 요소 순회
+                if (
+                  dataObj[products[i][l]].time[m][0] === k &&
+                  dataObj[products[i][l]].time[m][1] === j
+                ) {
+                  if (dupCheck === 1) {
+                    skipThisChoice = 1;
+                    break;
+                  }
+                  queryStr += `${dataObj[products[i][l]].class_name_Kor}_${
+                    dataObj[products[i][l]].prof
+                  }`;
+                  dupCheck = 1;
+                }
+              }
+            }
+
+            if (skipThisChoice === 1) break;
+
+            if (dupCheck === 0) queryStr += "-";
+
+            queryStr += "</td>";
+          }
+          queryStr += "</tr>";
         }
-        queryStr += "</tr>";
-      }
 
-      if(skipThisChoice === 1)
-        continue;
+        if (skipThisChoice === 1) continue;
 
-      queryStr += "</tbody>";
-      queryStr += "</table>";
+        queryStr += "</tbody>";
+        queryStr += "</table>";
 
-      div.innerHTML = queryStr;
-      tablesVar.appendChild(div);
-    } //\for
-  </script>
-
-</body>
-
+        div.innerHTML = queryStr;
+        tablesVar.appendChild(div);
+      } //\for
+    </script>
+  </body>
 </html>
