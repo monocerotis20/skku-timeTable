@@ -60,7 +60,11 @@
               <h4 class="panel-title">필터</h4>
             </div>
 
-            <select class="form-select" id="option-input" aria-label="Default select example">
+            <select
+              class="form-select"
+              id="option-input"
+              aria-label="Default select example"
+            >
               <option selected>적용할 필터를 선택하세요</option>
               <option value="1">공강 요일 수</option>
               <option value="2">과목간 공강 시간</option>
@@ -83,7 +87,7 @@
               <input
                 type="text"
                 class="form-control me-2"
-                id = "filter-input"
+                id="filter-input"
                 placeholder="필터 값"
               />
             </div>
@@ -91,7 +95,7 @@
             <button
               type="button"
               class="btn btn-primary mt-2 text-nowrap"
-              id = "filter"
+              id="filter"
             >
               필터 적용
             </button>
@@ -140,22 +144,21 @@
       }
       //console.log(groups);
 
-
       //filter 값 받아옴
       let button = document.querySelector("#filter");
       button.addEventListener("click", () => {
         // 1. Read the option in #option-input.
         var option_input = document.getElementById("option-input");
-        var _option = document.getElementById("option-input").options.selectedIndex;
-        let option = option_input.options[_option].value
+        var _option =
+          document.getElementById("option-input").options.selectedIndex;
+        let option = option_input.options[_option].value;
         let filter_input = document.querySelector("#filter-input");
         let filter = filter_input.value; //필터 값
 
         if (!filter.length) return;
 
-        switch (option){
+        switch (option) {
           case "1": //공강 요일 수
-            
             break;
           case "2":
             break;
@@ -169,11 +172,9 @@
             console.log("option: out of range");
             break;
         }
-      
+
         filter.value = "";
-
       });
-
 
       let dataObj = classData;
 
@@ -226,13 +227,11 @@
         }
         return skipThisChoice == 1;
       }
-      products = products.filter((n) => mainFilter(n));
+      products.filter((n) => mainFilter(n));
       showTimeTable(products);
 
-     
-
       // showTimeTable을 통해 products의 조합 보여줌
-      function showTimeTable (products){
+      function showTimeTable(products) {
         for (let i = 0; i < products.length; i++) {
           //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
 
