@@ -60,7 +60,7 @@
               <h4 class="panel-title">필터</h4>
             </div>
 
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" id="option-input" aria-label="Default select example">
               <option selected>적용할 필터를 선택하세요</option>
               <option value="1">공강 요일 수</option>
               <option value="2">과목간 공강 시간</option>
@@ -83,6 +83,7 @@
               <input
                 type="text"
                 class="form-control me-2"
+                id = "filter-input"
                 placeholder="필터 값"
               />
             </div>
@@ -90,7 +91,7 @@
             <button
               type="button"
               class="btn btn-primary mt-2 text-nowrap"
-              onclick=""
+              id = "filter"
             >
               필터 적용
             </button>
@@ -138,6 +139,42 @@
         groups.push(groupsObj[i]);
       }
       //console.log(groups);
+
+
+      //filter 값 받아옴
+      let button = document.querySelector("#filter");
+      button.addEventListener("click", () => {
+        // 1. Read the option in #option-input.
+        var option_input = document.getElementById("option-input");
+        var _option = document.getElementById("option-input").options.selectedIndex;
+        let option = option_input.options[_option].value
+        let filter_input = document.querySelector("#filter-input");
+        let filter = filter_input.value; //필터 값
+
+        if (!filter.length) return;
+
+        switch (option){
+          case "1": //공강 요일 수
+            
+            break;
+          case "2":
+            break;
+          case "3":
+            break;
+          case "4":
+            break;
+          case "5":
+            break;
+          default:
+            console.log("option: out of range");
+            break;
+        }
+      
+        filter.value = "";
+
+      });
+
+
       let dataObj = classData;
 
       let products = [];
@@ -189,103 +226,109 @@
         }
         return skipThisChoice == 1;
       }
-      products.filter((n) => mainFilter(n));
+      products = products.filter((n) => mainFilter(n));
+      showTimeTable(products);
 
-      for (let i = 0; i < products.length; i++) {
-        //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
+     
 
-        let skipThisChoice = 0;
-        //조건에 만족했다면
-        //div값 create
-        let tablesVar = document.getElementById("Tables");
-        let div = document.createElement("div");
-        let queryStr = "";
+      // showTimeTable을 통해 products의 조합 보여줌
+      function showTimeTable (products){
+        for (let i = 0; i < products.length; i++) {
+          //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
 
-        queryStr +=
-          '<table class="table table-primary mt-4" style="table-layout: fixed; width: 850px; margin: auto">';
-        queryStr += `
-              <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">월</th>
-                <th scope="col">화</th>
-                <th scope="col">수</th>
-                <th scope="col">목</th>
-                <th scope="col">금</th>
-              </tr>
-              </thead>`;
+          let skipThisChoice = 0;
+          //조건에 만족했다면
+          //div값 create
+          let tablesVar = document.getElementById("Tables");
+          let div = document.createElement("div");
+          let queryStr = "";
 
-        queryStr += "<tbody>";
+          queryStr +=
+            '<table class="table table-primary mt-4" style="table-layout: fixed; width: 850px; margin: auto">';
+          queryStr += `
+                <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">월</th>
+                  <th scope="col">화</th>
+                  <th scope="col">수</th>
+                  <th scope="col">목</th>
+                  <th scope="col">금</th>
+                </tr>
+                </thead>`;
 
-        for (let j = 1; j < rowCnt; j++) {
-          queryStr += "<tr>";
-          switch (j) {
-            case 1:
-              queryStr += '<th scope="row">9:00</th>';
-              break;
-            case 2:
-              queryStr += '<th scope="row">10:30</th>';
-              break;
-            case 3:
-              queryStr += '<th scope="row">12:00</th>';
-              break;
-            case 4:
-              queryStr += '<th scope="row">13:30</th>';
-              break;
-            case 5:
-              queryStr += '<th scope="row">15:00</th>';
-              break;
-            case 6:
-              queryStr += '<th scope="row">16:30</th>';
-              break;
-            case 7:
-              queryStr += '<th scope="row">18:00</th>';
-              break;
-          }
+          queryStr += "<tbody>";
 
-          for (let k = 1; k < columnCnt; k++) {
-            queryStr += "<td>";
-
-            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
-            let dupCheck = 0;
-
-            for (let l = 0; l < products[i].length; l++) {
-              //선택한 조합 순회
-              for (let m = 0; m < dataObj[products[i][l]].time.length; m++) {
-                //조합 중 과목의 time 요소 순회
-                if (
-                  dataObj[products[i][l]].time[m][0] === k &&
-                  dataObj[products[i][l]].time[m][1] === j
-                ) {
-                  if (dupCheck === 1) {
-                    skipThisChoice = 1;
-                    break;
-                  }
-                  queryStr += `${dataObj[products[i][l]].class_name_Kor}_${
-                    dataObj[products[i][l]].prof
-                  }`;
-                  dupCheck = 1;
-                }
-              }
+          for (let j = 1; j < rowCnt; j++) {
+            queryStr += "<tr>";
+            switch (j) {
+              case 1:
+                queryStr += '<th scope="row">9:00</th>';
+                break;
+              case 2:
+                queryStr += '<th scope="row">10:30</th>';
+                break;
+              case 3:
+                queryStr += '<th scope="row">12:00</th>';
+                break;
+              case 4:
+                queryStr += '<th scope="row">13:30</th>';
+                break;
+              case 5:
+                queryStr += '<th scope="row">15:00</th>';
+                break;
+              case 6:
+                queryStr += '<th scope="row">16:30</th>';
+                break;
+              case 7:
+                queryStr += '<th scope="row">18:00</th>';
+                break;
             }
 
-            if (skipThisChoice === 1) break;
+            for (let k = 1; k < columnCnt; k++) {
+              queryStr += "<td>";
 
-            if (dupCheck === 0) queryStr += "-";
+              //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+              let dupCheck = 0;
 
-            queryStr += "</td>";
+              for (let l = 0; l < products[i].length; l++) {
+                //선택한 조합 순회
+                for (let m = 0; m < dataObj[products[i][l]].time.length; m++) {
+                  //조합 중 과목의 time 요소 순회
+                  if (
+                    dataObj[products[i][l]].time[m][0] === k &&
+                    dataObj[products[i][l]].time[m][1] === j
+                  ) {
+                    if (dupCheck === 1) {
+                      skipThisChoice = 1;
+                      break;
+                    }
+                    queryStr += `${dataObj[products[i][l]].class_name_Kor}_${
+                      dataObj[products[i][l]].prof
+                    }`;
+                    dupCheck = 1;
+                  }
+                }
+              }
+
+              if (skipThisChoice === 1) break;
+
+              if (dupCheck === 0) queryStr += "-";
+
+              queryStr += "</td>";
+            }
+            queryStr += "</tr>";
           }
-          queryStr += "</tr>";
-        }
 
-        if (skipThisChoice === 1) continue;
+          if (skipThisChoice === 1) continue;
 
-        queryStr += "</tbody>";
-        queryStr += "</table>";
+          queryStr += "</tbody>";
+          queryStr += "</table>";
 
-        div.innerHTML = queryStr;
-        tablesVar.appendChild(div);
-      } //\for
+          div.innerHTML = queryStr;
+          tablesVar.appendChild(div);
+        } //\for
+      }
     </script>
   </body>
 </html>
