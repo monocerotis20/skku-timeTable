@@ -98,6 +98,14 @@
         <button type="button" class="btn btn-primary ms-1 text-nowrap">
           그룹 삭제
         </button>
+
+        <button
+          type="button"
+          class="btn btn-danger ms-1 text-nowrap"
+          id="reset-button"
+        >
+          초기화
+        </button>
       </div>
     </div>
 
@@ -155,6 +163,16 @@
       // window.addEventListener("load", () => {
       //   loadGroups();
       // });
+
+      let resetButton = document.querySelector("#reset-button");
+      resetButton.addEventListener("click", () => {
+        groups = {};
+        cnt = 1;
+        let div = document.querySelector("#group-list");
+        while (div.hasChildNodes()) {
+          div.removeChild(div.firstChild);
+        }
+      });
     </script>
 
     <script>
@@ -172,8 +190,7 @@
         list.appendChild(div);
       }
 
-      let button = document.querySelector("#add");
-      button.addEventListener("click", () => {
+      function func1() {
         // 1. Read the text in #group-input and #code-input.
         let group_input = document.querySelector("#group-input");
         let code_input = document.querySelector("#code-input");
@@ -200,6 +217,16 @@
         code_input.value = "";
 
         saveGroups();
+      }
+
+      let button = document.querySelector("#add");
+      button.addEventListener("click", func1);
+
+      let textbox = document.querySelector("#code-input");
+      textbox.addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+          func1();
+        }
       });
     </script>
   </body>
