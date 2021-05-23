@@ -160,6 +160,37 @@
       const rowCnt = 8;
       const columnCnt = 6;
 
+      // mainFilter를 통해 products로 생성된 모든 조합에서 겹치는 경우와 최대 학점을 넘는 경우를 걸러내 가능한 모든 조합을 만들 수 있게 한다.
+      function mainFilter(products) {
+        let skipThisChoice = 0;
+        for (let j = 1; j < rowCnt; j++) {
+          for (let k = 1; k < columnCnt; k++) {
+            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+            let dupCheck = 0;
+
+            for (let l = 0; l < products.length; l++) {
+              //선택한 조합 순회
+              for (let m = 0; m < dataObj[products[l]].time.length; m++) {
+                //조합 중 과목의 time 요소 순회
+                if (
+                  dataObj[products[l]].time[m][0] === k &&
+                  dataObj[products[l]].time[m][1] === j
+                ) {
+                  if (dupCheck === 1) {
+                    skipThisChoice = 1;
+                    break;
+                  }
+
+                  dupCheck = 1;
+                }
+              }
+            }
+          }
+        }
+        return skipThisChoice == 1;
+      }
+      products.filter((n) => mainFilter(n));
+
       for (let i = 0; i < products.length; i++) {
         //해당 선택지가 조건에 맞는지 확인 - 아무리 커도 24학점 미만 ?
 
