@@ -172,7 +172,11 @@
         if (!filter.length) return;
 
         switch (option) {
-          case "1": 
+          case "1":
+            let div = document.querySelector("#Tables");
+            while (div.hasChildNodes()) {
+              div.removeChild(div.firstChild);
+            } 
             copy = products;
             copy = copy.filter((n) => holidayFilter(n, filter));
             showTimeTable(copy);
@@ -189,11 +193,19 @@
           case "3":
             break;
           case "4":
+            let div4 = document.querySelector("#Tables");
+            while (div4.hasChildNodes()) {
+              div4.removeChild(div4.firstChild);
+            }
             copy = products;
             copy = copy.filter((n) => ratingFilter(n, filter));
             showTimeTable(copy);
             break;
           case "5":
+            let div5 = document.querySelector("#Tables");
+            while (div5.hasChildNodes()) {
+              div5.removeChild(div5.firstChild);
+            }
             copy = products;
             copy = copy.filter((n) => creditsFilter(n, filter));
             showTimeTable(copy);
