@@ -106,7 +106,6 @@
             >
               필터 초기화
             </button>
-
           </div>
         </div>
       </div>
@@ -154,11 +153,11 @@
 
       let reset_button = document.querySelector("#reset");
       reset_button.addEventListener("click", () => {
-            let div = document.querySelector("#Tables");
-            while (div.hasChildNodes()) {
-              div.removeChild(div.firstChild);
-            } 
-            
+        let div = document.querySelector("#Tables");
+        while (div.hasChildNodes()) {
+          div.removeChild(div.firstChild);
+        }
+
         showTimeTable(products);
       });
 
@@ -178,39 +177,28 @@
 
         switch (option) {
           case "1":
-            let div = document.querySelector("#Tables");
-            while (div.hasChildNodes()) {
-              div.removeChild(div.firstChild);
-            } 
+            clearTable();
             copy = products;
             copy = copy.filter((n) => holidayFilter(n, filter));
             showTimeTable(copy);
             break;
           case "2":
-            let div2 = document.querySelector("#Tables");
-            while (div2.hasChildNodes()) {
-              div2.removeChild(div2.firstChild);
-            }
-            let copy2 = products;
-            copy2 = copy2.filter((n) => class2classFilter(n, filter));
-            showTimeTable(copy2);
+            clearTable();
+            let copy = products;
+            copy = copy.filter((n) => class2classFilter(n, filter));
+            showTimeTable(copy);
             break;
           case "3":
+            clearTable();
             break;
           case "4":
-            let div4 = document.querySelector("#Tables");
-            while (div4.hasChildNodes()) {
-              div4.removeChild(div4.firstChild);
-            }
+            clearTable();
             copy = products;
             copy = copy.filter((n) => ratingFilter(n, filter));
             showTimeTable(copy);
             break;
           case "5":
-            let div5 = document.querySelector("#Tables");
-            while (div5.hasChildNodes()) {
-              div5.removeChild(div5.firstChild);
-            }
+            clearTable();
             copy = products;
             copy = copy.filter((n) => creditsFilter(n, filter));
             showTimeTable(copy);
@@ -244,6 +232,14 @@
 
       const rowCnt = 8;
       const columnCnt = 6;
+
+      // 시간표 목록 초기화 함수
+      function clearTable() {
+        let div = document.querySelector("#Tables");
+        while (div.hasChildNodes()) {
+          div.removeChild(div.firstChild);
+        }
+      }
 
       // mainFilter를 통해 products로 생성된 모든 조합에서 겹치는 경우와 최대 학점을 넘는 경우를 걸러내 가능한 모든 조합을 만들 수 있게 한다.
       function mainFilter(products) {
@@ -279,57 +275,53 @@
 
       //공강 요일 수 필터
       function holidayFilter(copy, filter) {
-          let skipThisChoice = 0;
-          let days = [1,2,3,4,5];
-          
-              for (let l = 0; l < copy.length; l++) {
-                //선택한 조합 순회
-                for (let m = 0; m < dataObj[copy[l]].time.length; m++) {
-                  //조합 중 과목의 time 요소 순회
-                  let idx = days.indexOf(dataObj[copy[l]].time[m][0]);
-                  if (idx > -1) 
-                    days.splice(idx, 1);
-                }
-              }
+        let skipThisChoice = 0;
+        let days = [1, 2, 3, 4, 5];
 
-              if(days.length < filter){
-                return false;
-              }
-              else{
-                return true;
-              }
+        for (let l = 0; l < copy.length; l++) {
+          //선택한 조합 순회
+          for (let m = 0; m < dataObj[copy[l]].time.length; m++) {
+            //조합 중 과목의 time 요소 순회
+            let idx = days.indexOf(dataObj[copy[l]].time[m][0]);
+            if (idx > -1) days.splice(idx, 1);
+          }
         }
 
-        //일정 평점 이상 필터
+        if (days.length < filter) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      //일정 평점 이상 필터
       function ratingFilter(copy, filter) {
-          let skipThisChoice = 0;
-          let min = parseFloat(filter);
-          
-              for (let l = 0; l < copy.length; l++) {
-                //선택한 조합 순회
-                if(dataObj[copy[l]].rating < min){
-                  return false;
-                }
-              }
-              return true;
-        }
-      
+        let skipThisChoice = 0;
+        let min = parseFloat(filter);
 
-      
-        //수강할 학점 조절 필터
+        for (let l = 0; l < copy.length; l++) {
+          //선택한 조합 순회
+          if (dataObj[copy[l]].rating < min) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      //수강할 학점 조절 필터
       function creditsFilter(copy, filter) {
-          let skipThisChoice = 0;
-          let min = parseFloat(filter);
-          let sum = 0;
-        
-            for (let l = 0; l < copy.length; l++) {
-              //선택한 조합 순회
-              sum += dataObj[copy[l]].credits; 
-            }  
-            if(sum !== min){
-                  return false;
-            }
-            return true;
+        let skipThisChoice = 0;
+        let min = parseFloat(filter);
+        let sum = 0;
+
+        for (let l = 0; l < copy.length; l++) {
+          //선택한 조합 순회
+          sum += dataObj[copy[l]].credits;
+        }
+        if (sum !== min) {
+          return false;
+        }
+        return true;
       }
 
       //하루 과목 당 공강 시간 필터
@@ -349,9 +341,17 @@
                   dataObj[copy[l]].time[m][0] === j &&
                   dataObj[copy[l]].time[m][1] === k
                 ) {
-                  console.log('j: '+ j + ' k: ' + k + ' prevSp: ' + prevSp + ' filter: ' + filter);
-                  if(k - prevSp - 1 > filter)
-                    return false;
+                  console.log(
+                    "j: " +
+                      j +
+                      " k: " +
+                      k +
+                      " prevSp: " +
+                      prevSp +
+                      " filter: " +
+                      filter
+                  );
+                  if (k - prevSp - 1 > filter) return false;
 
                   prevSp = k;
                 }
@@ -361,7 +361,6 @@
         }
         return true;
       }
-
 
       // showTimeTable을 통해 products의 조합 보여줌
       function showTimeTable(products) {
@@ -428,7 +427,7 @@
               for (let l = 0; l < products[i].length; l++) {
                 //해당 선택지가 조건에 맞는지 확인 - 21학점 이하
                 sum += dataObj[products[i][l]].credits;
-                if(sum > max){
+                if (sum > max) {
                   skipThisChoice = 1;
                   break;
                 }
@@ -444,7 +443,7 @@
                       skipThisChoice = 1;
                       break;
                     }
-                    
+
                     queryStr += `${dataObj[products[i][l]].class_name_Kor}_${
                       dataObj[products[i][l]].prof
                     }`;
