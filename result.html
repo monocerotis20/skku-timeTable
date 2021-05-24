@@ -297,6 +297,44 @@
         }
       }
 
+      // 2.하루 과목 당 공강 시간 필터
+      function class2classFilter(copy, filter) {
+        let prevSp = 0;
+        for (let j = 1; j <= 5; j++) {
+          prevSp = 1;
+          for (let k = 1; k <= 7; k++) {
+            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+            let dupCheck = 0;
+
+            for (let l = 0; l < copy.length; l++) {
+              //선택한 조합 순회
+              for (let m = 0; m < dataObj[copy[l]].time.length; m++) {
+                //조합 중 과목의 time 요소 순회
+                if (
+                  dataObj[copy[l]].time[m][0] === j &&
+                  dataObj[copy[l]].time[m][1] === k
+                ) {
+                  console.log(
+                    "j: " +
+                      j +
+                      " k: " +
+                      k +
+                      " prevSp: " +
+                      prevSp +
+                      " filter: " +
+                      filter
+                  );
+                  if (k - prevSp - 1 > filter) return false;
+
+                  prevSp = k;
+                }
+              }
+            }
+          }
+        }
+        return true;
+      }
+
       // 3. 하루 최대 과목 수 필터
       function maxClass(copy, filter) {
         let cnt_list = [];
@@ -338,44 +376,6 @@
         }
         if (sum !== min) {
           return false;
-        }
-        return true;
-      }
-
-      // 2.하루 과목 당 공강 시간 필터
-      function class2classFilter(copy, filter) {
-        let prevSp = 0;
-        for (let j = 1; j <= 5; j++) {
-          prevSp = 1;
-          for (let k = 1; k <= 7; k++) {
-            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
-            let dupCheck = 0;
-
-            for (let l = 0; l < copy.length; l++) {
-              //선택한 조합 순회
-              for (let m = 0; m < dataObj[copy[l]].time.length; m++) {
-                //조합 중 과목의 time 요소 순회
-                if (
-                  dataObj[copy[l]].time[m][0] === j &&
-                  dataObj[copy[l]].time[m][1] === k
-                ) {
-                  console.log(
-                    "j: " +
-                      j +
-                      " k: " +
-                      k +
-                      " prevSp: " +
-                      prevSp +
-                      " filter: " +
-                      filter
-                  );
-                  if (k - prevSp - 1 > filter) return false;
-
-                  prevSp = k;
-                }
-              }
-            }
-          }
         }
         return true;
       }
