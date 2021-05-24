@@ -98,6 +98,15 @@
             >
               필터 적용
             </button>
+
+            <button
+              type="button"
+              class="btn btn-primary mt-2 text-nowrap"
+              id="reset"
+            >
+              필터 초기화
+            </button>
+
           </div>
         </div>
       </div>
@@ -142,6 +151,11 @@
         groups.push(groupsObj[i]);
       }
       //console.log(groups);
+
+      let reset_button = document.querySelector("#reset");
+      reset_button.addEventListener("click", () => {
+        showTimeTable(products);
+      });
 
       //filter 값 받아옴
       let button = document.querySelector("#filter");
@@ -228,7 +242,8 @@
       }
       //products.filter((n) => mainFilter(n));
       showTimeTable(products);
-      
+
+     
       // showTimeTable을 통해 products의 조합 보여줌
       function showTimeTable(products) {
         //max는 최대학점
