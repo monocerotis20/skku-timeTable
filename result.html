@@ -154,6 +154,11 @@
 
       let reset_button = document.querySelector("#reset");
       reset_button.addEventListener("click", () => {
+            let div = document.querySelector("#Tables");
+            while (div.hasChildNodes()) {
+              div.removeChild(div.firstChild);
+            } 
+            
         showTimeTable(products);
       });
 
