@@ -186,6 +186,9 @@
           case "3":
             break;
           case "4":
+            copy = products;
+            copy = copy.filter((n) => ratingFilter(n, filter));
+            showTimeTable(copy);
             break;
           case "5":
             copy = products;
@@ -254,6 +257,22 @@
       //products.filter((n) => mainFilter(n));
       showTimeTable(products);
 
+
+        //일정 평점 이상 필터
+      function ratingFilter(copy, filter) {
+          let skipThisChoice = 0;
+          let min = parseFloat(filter);
+          
+              for (let l = 0; l < copy.length; l++) {
+                //선택한 조합 순회
+                if(dataObj[copy[l]].rating < min){
+                  return false;
+                }
+              }
+              return true;
+        }
+      
+
       
         //수강할 학점 조절 필터
       function creditsFilter(copy, filter) {
@@ -300,6 +319,7 @@
         }
         return true;
       }
+
 
       // showTimeTable을 통해 products의 조합 보여줌
       function showTimeTable(products) {
