@@ -67,7 +67,7 @@
             >
               <option selected>적용할 필터를 선택하세요</option>
               <option value="1">공강 요일 수</option>
-              <option value="2">과목간 공강 시간</option>
+              <option value="2">과목간 최대 공강 교시</option>
               <option value="3">하루 최대 과목 수</option>
               <option value="4">최소 평점</option>
               <option value="5">수강할 학점</option>
@@ -184,6 +184,13 @@
             showTimeTable(copy);
             break;
           case "2":
+            let div2 = document.querySelector("#Tables");
+            while (div2.hasChildNodes()) {
+              div2.removeChild(div2.firstChild);
+            }
+            let copy2 = products;
+            copy2 = copy2.filter((n) => class2classFilter(n, filter));
+            showTimeTable(copy2);
             break;
           case "3":
             break;
@@ -275,6 +282,36 @@
         } else {
           return true;
         }
+      }
+
+      //하루 과목 당 공강 시간 필터
+      function class2classFilter(copy, filter) {
+        let prevSp = 0;
+        for (let j = 1; j <= 5; j++) {
+          prevSp = 1;
+          for (let k = 1; k <= 7; k++) {
+            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+            let dupCheck = 0;
+
+            for (let l = 0; l < copy.length; l++) {
+              //선택한 조합 순회
+              for (let m = 0; m < dataObj[copy[l]].time.length; m++) {
+                //조합 중 과목의 time 요소 순회
+                if (
+                  dataObj[copy[l]].time[m][0] === j &&
+                  dataObj[copy[l]].time[m][1] === k
+                ) {
+                  console.log('j: '+ j + ' k: ' + k + ' prevSp: ' + prevSp + ' filter: ' + filter);
+                  if(k - prevSp - 1 > filter)
+                    return false;
+
+                  prevSp = k;
+                }
+              }
+            }
+          }
+        }
+        return true;
       }
 
       // showTimeTable을 통해 products의 조합 보여줌
