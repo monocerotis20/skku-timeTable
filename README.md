@@ -15,7 +15,7 @@
 
 ## How to Commit
 
-[commit format](https://doublesprogramming.tistory.com/256)
+See [commit format](https://doublesprogramming.tistory.com/256).
 
 ## How to Feedback
 Use Issues tab, or email: monocerotis@g.skku.edu
