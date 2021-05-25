@@ -441,11 +441,20 @@
               //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
               let dupCheck = 0;
               sum = 0;
+              let Subject=[];
 
               for (let l = 0; l < products[i].length; l++) {
                 //해당 선택지가 조건에 맞는지 확인 - 21학점 이하
                 sum += dataObj[products[i][l]].credits;
                 if (sum > max) {
+                  skipThisChoice = 1;
+                  break;
+                }
+                 
+                //과목이 겹치는지 확인
+                if(!Subject.includes(dataObj[products[i][l]].class_name_Kor))
+                  Subject.push(dataObj[products[i][l]].class_name_Kor);
+                else{
                   skipThisChoice = 1;
                   break;
                 }
