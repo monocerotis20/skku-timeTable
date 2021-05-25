@@ -59,12 +59,12 @@
             <option value="5">수강할 학점</option>
           </select>
 
-          <!-- 선택된 필터들에 대해 Placeholder를 
+          <!-- 선택된 필터들에 대해 Placeholder를
               "공강 요일 수", "과목간 공강 시간", ... 를 입력
             또는
-            
+
             선택한 필터에 대한 description을 불러오기
-          
+
             -->
 
           <!-- 패널 타이틀2 -->
@@ -400,17 +400,26 @@
           for (let k = 1; k < columnCnt; k++) {
             queryStr += "<td>";
 
-            //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
-            let dupCheck = 0;
-            sum = 0;
+              //dataObj[products[i][INDEX]] -> 오브젝트에서 키 값 참조
+              let dupCheck = 0;
+              sum = 0;
+              let Subject=[];
 
-            for (let l = 0; l < products[i].length; l++) {
-              //해당 선택지가 조건에 맞는지 확인 - 21학점 이하
-              sum += dataObj[products[i][l]].credits;
-              if (sum > max) {
-                skipThisChoice = 1;
-                break;
-              }
+              for (let l = 0; l < products[i].length; l++) {
+                //해당 선택지가 조건에 맞는지 확인 - 21학점 이하
+                sum += dataObj[products[i][l]].credits;
+                if (sum > max) {
+                  skipThisChoice = 1;
+                  break;
+                }
+
+                //과목이 겹치는지 확인
+                if(!Subject.includes(dataObj[products[i][l]].class_name_Kor))
+                  Subject.push(dataObj[products[i][l]].class_name_Kor);
+                else{
+                  skipThisChoice = 1;
+                  break;
+                }
 
               //선택한 조합 순회
               for (let m = 0; m < dataObj[products[i][l]].time.length; m++) {

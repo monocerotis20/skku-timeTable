@@ -115,9 +115,12 @@
       crossorigin="anonymous"
     ></script>
 
+    <script type="text/javascript" src="classData/classData.js"></script>
+
     <script>
       let groups = {};
       let cnt = 1;
+      let dataObj = classData;
 
       // function loadGroups() {
       //   let lastGroups = localStorage.getItem("groups");
@@ -176,6 +179,21 @@
     </script>
 
     <script>
+      function getDay(num){
+        //console.log(num);
+        if(num===1)
+          return "월";
+        else if(num===2)
+          return "화";
+        else if(num===3)
+          return "수";
+        else if(num===4)
+          return "목";
+        else if(num===5)
+          return "금";
+        
+      }
+
       function addToClassList(task) {
         let div = document.createElement("div");
         div.className =
@@ -183,8 +201,14 @@
 
         let span = document.createElement("span");
         span.className = "me-auto";
-        span.textContent = task.classCode;
+        span.textContent = dataObj[task.classCode].class_name_Kor +  ", " + dataObj[task.classCode].prof;
+        for(let i = 0; i<dataObj[task.classCode].time.length; i++){
+          let tmp = ", "+ getDay(dataObj[task.classCode].time[i][0])+ ": "+ dataObj[task.classCode].time[i][1] + "교시";
+          span.textContent += tmp;
+        }
         div.appendChild(span);
+
+        //console.log(dataObj[task.classCode].class_name_Kor);
 
         let list = document.querySelector(`#g${task.groupName}`);
         list.appendChild(div);
