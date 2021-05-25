@@ -4,6 +4,10 @@
 
 비슷한 과목들의 그룹을 만들어 시간표를 조합해 주는 프로그램. 각 그룹에서 수업을 하나씩 뽑아 시간표를 생성하며 여러 가지 필터를 적용해 사용자가 원하는 조건의 시간표 조합을 확인할 수 있다.
 
+## Usage (No Installation)
+
+[https://monocerotis20.github.io/skku-timeTable/](https://monocerotis20.github.io/skku-timeTable/)
+
 ## Features
 
 적용가능 필터
