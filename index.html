@@ -131,26 +131,30 @@
       }
 
       function addGroup(group) {
-        let div = document.createElement("div");
-        div.className = "card bg-light mt-2 mb-2";
-
         let card = document.createElement("div");
-        card.className = "card-body";
-        div.appendChild(card);
+        card.className = "card bg-light rounded-3 mt-2 mb-2";
+
+        let cardHeader = document.createElement("div");
+        cardHeader.className = "card-header";
+        card.appendChild(cardHeader);
+
+        let cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+        card.appendChild(cardBody);
 
         let span = document.createElement("span");
         span.className = "me-auto";
-        span.textContent = `group ${cnt}:`;
-        card.appendChild(span);
+        span.textContent = `group ${cnt}`;
+        cardHeader.appendChild(span);
 
         let groupList = document.querySelector("#group-list");
 
         groups[cnt] = [];
 
-        div.id = `g${cnt}`;
+        card.id = `g${cnt}`;
         cnt++;
 
-        groupList.appendChild(div);
+        groupList.appendChild(card);
       }
 
       let gButton = document.querySelector("#groupAdd");
@@ -209,7 +213,9 @@
         //console.log(dataObj[task.classCode].class_name_Kor);
 
         let list = document.querySelector(`#g${task.groupName}`);
-        list.appendChild(div);
+        let card = list.querySelector(".card-body");
+
+        card.appendChild(div);
       }
 
       function func1() {
