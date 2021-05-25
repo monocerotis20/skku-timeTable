@@ -95,16 +95,12 @@
           <i class="bi bi-plus"></i> 그룹 추가
         </button>
 
-        <button type="button" class="btn btn-primary ms-1 text-nowrap">
-          그룹 삭제
-        </button>
-
         <button
           type="button"
           class="btn btn-danger ms-1 text-nowrap"
           id="reset-button"
         >
-          초기화
+          <i class="bi bi-arrow-counterclockwise"></i> 초기화
         </button>
       </div>
     </div>
@@ -179,19 +175,13 @@
     </script>
 
     <script>
-      function getDay(num){
+      function getDay(num) {
         //console.log(num);
-        if(num===1)
-          return "월";
-        else if(num===2)
-          return "화";
-        else if(num===3)
-          return "수";
-        else if(num===4)
-          return "목";
-        else if(num===5)
-          return "금";
-        
+        if (num === 1) return "월";
+        else if (num === 2) return "화";
+        else if (num === 3) return "수";
+        else if (num === 4) return "목";
+        else if (num === 5) return "금";
       }
 
       function addToClassList(task) {
@@ -201,9 +191,17 @@
 
         let span = document.createElement("span");
         span.className = "me-auto";
-        span.textContent = dataObj[task.classCode].class_name_Kor +  ", " + dataObj[task.classCode].prof;
-        for(let i = 0; i<dataObj[task.classCode].time.length; i++){
-          let tmp = ", "+ getDay(dataObj[task.classCode].time[i][0])+ ": "+ dataObj[task.classCode].time[i][1] + "교시";
+        span.textContent =
+          dataObj[task.classCode].class_name_Kor +
+          ", " +
+          dataObj[task.classCode].prof;
+        for (let i = 0; i < dataObj[task.classCode].time.length; i++) {
+          let tmp =
+            ", " +
+            getDay(dataObj[task.classCode].time[i][0]) +
+            ": " +
+            dataObj[task.classCode].time[i][1] +
+            "교시";
           span.textContent += tmp;
         }
         div.appendChild(span);
