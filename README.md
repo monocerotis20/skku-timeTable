@@ -30,6 +30,9 @@
 
 우측의 필터에서 필터를 선택하고 필터에 해당하는 값을 입력한 후 핋터 적용 버튼을 눌러 결과를 볼 수 있다. 필터 초기화 버튼으로 아무 필터를 적용하지 않은 상태로 돌아갈 수 있다. 
 
+* 데모 비디오
+[Watch Demo Video](https://youtu.be/uSmpZse_cXw).
+
 ## How to Commit
 
 See [commit format](https://doublesprogramming.tistory.com/256).
